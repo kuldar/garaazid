@@ -1,0 +1,30 @@
+backend:
+  name: github
+  branch: kuldar/garaazid-web
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "garages"
+    label: "Garages"
+    folder: "src/garages"
+    extension: "json"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+     preview: false
+    fields:
+      - { label: "Address", name: "address", widget: "string" }
+      - { label: "Area", name: "area", widget: "" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Featured Image", name: "featuredimage", widget: "image" }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/home.yml"
+        label: "Homepage"
+        name: "home"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - { label: Title, name: title, widget: string }

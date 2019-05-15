@@ -1,0 +1,36 @@
+{
+  "name": "garaazid-web",
+  "private": true,
+  "description": "Garaazid.ee Website",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "gatsby develop",
+    "start": "npm run dev",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.1.19",
+    "gatsby-image": "^2.0.30",
+    "gatsby-plugin-manifest": "^2.0.20",
+    "gatsby-plugin-netlify-cms": "^4.0.1",
+    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.0",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-react-svg": "^2.0.0",
+    "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-plugin-styled-components": "^3.0.6",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-json": "^2.1.8",
+    "gatsby-transformer-sharp": "^2.1.15",
+    "netlify-cms": "^2.9.1",
+    "polished": "^3.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "react-select": "^2.4.1",
+    "styled-components": "^4.1.3"
+  }
+}
