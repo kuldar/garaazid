@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: kuldar/garaazid-web
+  repo: kuldar/garaazid-web
 
 media_folder: static/img
 public_folder: /img

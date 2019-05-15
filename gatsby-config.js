@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-json`,
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
