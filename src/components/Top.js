@@ -2,18 +2,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// Icons
-// import GithubIcon from '../svgs/github.svg'
+// Assets
+import Logo from '../svgs/logo.svg'
+import Phone from '../svgs/phone.svg'
+import Facebook from '../svgs/facebook.svg'
 
 // Layout
 const Top = () => (
   <Center>
-    <Name>Garaazid.ee</Name>
-    <Nav>
-      <span>+372 <strong>56 214 956</strong></span>
-      <a>Phone</a>
-      <a>Facebook</a>
-    </Nav>
+    <Logo />
+    <Contact>
+      <PhoneNumber>+372 <strong>56 214 956</strong></PhoneNumber>
+      <Phone />
+      <FacebookLink href="#"><Facebook /></FacebookLink>
+    </Contact>
   </Center>
 )
 
@@ -27,15 +29,25 @@ const Center = styled.div`
   color: ${p => p.theme.white};
 `
 
-const Name = styled.div`
-  font-weight: 600;
-  font-size: 24px;
-  letter-spacing: -1px;
-`
-
-const Nav = styled.nav`
+const Contact = styled.div`
   display: flex;
   align-items: center;
+`
+
+const PhoneNumber = styled.div`
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 16px;
+  font-weight: 400;
+  strong { font-weight: 700; }
+`
+
+const FacebookLink = styled.a`
+  transition: transform 100ms ease;
+  margin-left: 16px;
+
+  svg { display: block; }
+  &:hover { transform: scale(1.25); }
 `
 
 export default Top

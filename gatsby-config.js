@@ -1,9 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: `Garaazid`,
-    description: `Garaazide ost müük ja vahetus`,
-    url: `https://garaazid.ee`
-  },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
@@ -12,13 +7,6 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `./src/pages/`
-      }
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,9 +37,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `static/icon.png`, // This path is relative to the root of the site.
       }
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
+    }
   ]
 }

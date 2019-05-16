@@ -1,6 +1,7 @@
 backend:
-  name: github
-  repo: kuldar/garaazid-web
+  name: test-repo
+  # name: github
+  # repo: kuldar/garaazid-web
 
 media_folder: static/img
 public_folder: /img
@@ -9,7 +10,7 @@ collections:
   - name: "garages"
     label: "Garages"
     folder: "src/garages"
-    extension: "json"
+    extension: "yaml"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
@@ -19,12 +20,3 @@ collections:
       - { label: "Area", name: "area", widget: "" }
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Featured Image", name: "featuredimage", widget: "image" }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/home.yml"
-        label: "Homepage"
-        name: "home"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
-          - { label: Title, name: title, widget: string }

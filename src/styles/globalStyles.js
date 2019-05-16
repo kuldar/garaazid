@@ -39,11 +39,11 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: ${theme.main};
+    font-family: ${theme.mainFont};
     line-height: 1;
     font-size: 16px;
-    color: ${theme.black};
-    background-color: ${theme.lightGray};
+    color: ${theme.gray900};
+    background-color: ${theme.gray100};
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
