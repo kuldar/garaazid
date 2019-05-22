@@ -1,6 +1,7 @@
 // Libraries
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 // Components
 import Layout from '../components/Layout'
@@ -8,31 +9,11 @@ import Top from '../components/Top'
 import Form from '../components/Form'
 import Features from '../components/Features'
 import GarageRow from '../components/GarageRow'
+import Filters from '../components/Filters'
 import Footer from '../components/Footer'
 
-const garages = [
-  {
-    address: "Liivaoja tn 14, Kesklinn, Tallinn",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.",
-    area: 22,
-    price: 7500
-  },
-  {
-    address: "Liivaoja tn 14, Kesklinn, Tallinn",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.",
-    area: 22,
-    price: 7500
-  },
-  {
-    address: "Liivaoja tn 14, Kesklinn, Tallinn",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.",
-    area: 22,
-    price: 7500
-  }
-]
-
 // Home
-const HomePage = () => {
+const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
   return (
     <Layout>
       <Header>
@@ -42,6 +23,7 @@ const HomePage = () => {
       </Header>
       <Features />
       <Garages>
+        <Filters />
         { garages.map(garage => <GarageRow garage={garage} />) }
       </Garages>
       <Footer />
@@ -78,9 +60,22 @@ const Hero = styled.div`
 const Garages = styled.div`
   width: 832px;
   margin: 64px auto 0 auto;
-  padding: 0 16px;
   background-color: ${p => p.theme.white};
   box-shadow: ${p => p.theme.cardShadow};
+`
+
+export const pageQuery = graphql`
+  query {
+    allGaragesYaml {
+      nodes {
+        id
+        address
+        description
+        area
+        price
+      }
+    }
+  }
 `
 
 export default HomePage

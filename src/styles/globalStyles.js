@@ -74,6 +74,7 @@ export default createGlobalStyle`
 
   a {
     color: ${theme.black};
+    text-decoration: inherit;
   }
 
   pre {

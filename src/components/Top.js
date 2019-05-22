@@ -1,5 +1,6 @@
 // Libraries
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 // Assets
@@ -10,7 +11,7 @@ import Facebook from '../svgs/facebook.svg'
 // Layout
 const Top = () => (
   <Center>
-    <Logo />
+    <Link to='/'><Logo /></Link>
     <Contact>
       <PhoneNumber>+372 <strong>56 214 956</strong></PhoneNumber>
       <Phone />
