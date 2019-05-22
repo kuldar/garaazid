@@ -5,6 +5,7 @@ import styled from 'styled-components'
 // Components
 import Layout from '../components/Layout'
 import Top from '../components/Top'
+import GarageRow from '../components/GarageRow'
 import Footer from '../components/Footer'
 
 // Garage
@@ -14,10 +15,9 @@ const GaragePage = ({ pageContext: garage }) => {
       <Header>
         <Top />
       </Header>
-      <div>{garage.address}</div>
-      <div>{garage.description}</div>
-      <div>{garage.area} m2</div>
-      <div>{garage.price} €</div>
+      <Card>
+        <GarageRow garage={garage} />
+      </Card>
       <Footer />
     </Layout>
   )
@@ -26,6 +26,13 @@ const GaragePage = ({ pageContext: garage }) => {
 const Header = styled.div`
   padding: 40px 0;
   background-color: ${p => p.theme.gray900};
+`
+
+const Card = styled.div`
+  width: 832px;
+  margin: 64px auto 0 auto;
+  background-color: ${p => p.theme.white};
+  box-shadow: ${p => p.theme.cardShadow};
 `
 
 export default GaragePage
