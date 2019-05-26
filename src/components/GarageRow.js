@@ -11,7 +11,7 @@ const GarageRow = ({ garage }) => (
     <Overview>
       <Main>
         <Address>{garage.address}</Address>
-        <Description>{garage.description}</Description>
+        <Description>{garage.shortDescription}</Description>
       </Main>
 
       <InfoGroup>

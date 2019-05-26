@@ -70,8 +70,9 @@ export const pageQuery = graphql`
       nodes {
         id
         address
-        description
         area
+        shortDescription
+        description
         price
       }
     }
