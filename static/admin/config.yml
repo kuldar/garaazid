@@ -4,9 +4,7 @@ development_overrides:
     api_root: /api
 
 backend:
-  name: github
-  squash_merges: true
-  repo: kuldar/garaazid-web
+  name: git-gateway
   branch: master
 
 media_folder: static/img
