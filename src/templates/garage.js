@@ -14,16 +14,15 @@ import { formatMoney } from '../utils/money'
 // Garage
 const GaragePage = ({ pageContext: garage }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false)
+  const lightboxImages = []
+  garage.images.map(image => lightboxImages.push({ src: image }))
   return (
     <Layout>
       <Lightbox
         backdropClosesModal={true}
         closeButtonTitle="Sulge"
         imageCountSeparator="/"
-        images={[
-          { src: 'https://i.imgur.com/vpj2BD3.png' },
-          { src: 'https://i.imgur.com/vpj2BD3.png' }
-        ]}
+        images={lightboxImages}
         isOpen={lightboxOpen}
         // onClickPrev={this.gotoPrevious}
         // onClickNext={this.gotoNext}
@@ -61,13 +60,11 @@ const GaragePage = ({ pageContext: garage }) => {
             <Description>{garage.description}</Description>
           </Main>
 
-          <Images onClick={() => setLightboxOpen(true)}>
-            <MainImage src="https://i.imgur.com/vpj2BD3.png" />
+          <Images onClick={() => garage.images ? setLightboxOpen(true) : null}>
+            <MainImage src={garage.coverImage} />
             <SmallImages>
-              <Image src="https://i.imgur.com/vpj2BD3.png" />
-              <Image src="https://i.imgur.com/vpj2BD3.png" />
-              <Image src="https://i.imgur.com/vpj2BD3.png" />
-              <Image src="https://i.imgur.com/vpj2BD3.png" />
+              { garage.images &&
+                garage.images.map(imageUrl => <Image src={imageUrl} />) }
             </SmallImages>
           </Images>
 

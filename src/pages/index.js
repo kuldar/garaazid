@@ -86,6 +86,7 @@ export const pageQuery = graphql`
         area
         description
         shortDescription
+        coverImage
       }
     }
   }

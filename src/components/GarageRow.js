@@ -9,7 +9,7 @@ import { formatMoney } from '../utils/money'
 // GarageRow
 const GarageRow = ({ garage }) => (
   <Container to={`/${garage.id}`}>
-    <Image src="https://i.imgur.com/vpj2BD3.png" />
+    <Image src={garage.coverImage} />
 
     <Overview>
       <Main>
@@ -25,13 +25,13 @@ const GarageRow = ({ garage }) => (
         { garage.rentPrice &&
           <Info>
             <Value>{formatMoney(garage.rentPrice)} €</Value>
-            <Label>Rendi Hind</Label>
+            <Label>Rent</Label>
           </Info>
         }
         { garage.sellPrice &&
           <Info>
             <Value>{formatMoney(garage.sellPrice)} €</Value>
-            <Label>Müügi Hind</Label>
+            <Label>Müük</Label>
           </Info>
         }
       </InfoGroup>
@@ -74,10 +74,13 @@ const Image = styled.img`
 
 const Overview = styled.div`
   display: flex;
+  flex: 1;
   padding: 16px;
 `
 
-const Main = styled.div``
+const Main = styled.div`
+  flex: 1;
+`
 
 const Address = styled.div`
   ${boldText}

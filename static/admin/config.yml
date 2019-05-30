@@ -1,27 +1,38 @@
+development_overrides:
+  backend:
+    name: file-system
+    api_root: /api
+
 backend:
   name: github
+  squash_merges: true
   repo: kuldar/garaazid-web
-
-publish_mode: editorial_workflow
+  branch: master
 
 media_folder: static/img
 public_folder: /img
 
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+
 collections:
   - name: "garages"
-    label: "Garages"
+    label: "Garaazid"
     folder: "src/garages"
     extension: "yaml"
-    create: true
     slug: "{{slug}}"
+    create: true
     editor:
       preview: false
+    identifier_field: id
     fields:
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Aadress", name: "address", widget: "string" }
+      - { label: "Aadress", name: "address", widget: "string", tagname: h1 }
       - { label: "Hind (Rent)", name: "rentPrice", widget: "number" }
       - { label: "Hind (Müük)", name: "sellPrice", widget: "number" }
       - { label: "Pindala (m²)", name: "area", widget: "number" }
       - { label: "Lühikirjeldus", name: "shortDescription", widget: "string" }
       - { label: "Kirjeldus", name: "description", widget: "markdown" }
       - { label: "Kaanepilt", name: "coverImage", widget: "image" }
+      - { label: "Pildid", name: "images", widget: "list", field: { label: Pilt, name: image, widget: image }}

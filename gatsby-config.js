@@ -1,6 +1,19 @@
+const fileSystemAPI = require('./src/cms/file-system-api-plugin/fs-express-api')
+
 module.exports = {
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    // `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`, // default: undefined
+        stylesPath: `${__dirname}/src/cms/cms.css`, // default: undefined
+        enableIdentityWidget: false, // default: true
+        publicPath: 'admin',
+        htmlTitle: 'Content Manager',
+        manualInit: true
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -38,5 +51,6 @@ module.exports = {
         icon: `static/icon.png`, // This path is relative to the root of the site.
       }
     }
-  ]
+  ],
+  developMiddleware: fileSystemAPI
 }

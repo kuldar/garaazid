@@ -18,6 +18,8 @@ exports.createPages = ({ graphql, actions }) => {
           area
           rentPrice
           sellPrice
+          coverImage
+          images
         }
       }
     }

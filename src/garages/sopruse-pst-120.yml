@@ -2,7 +2,11 @@ id: sopruse-pst-120
 address: Sõpruse pst 120, Mustamäe, Tallinn
 rentPrice: 400
 area: 20
+shortDescription: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.
 description: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, lorem sed volutpat maximus, libero mauris vehicula eros, quis varius augue risus ac leo. Curabitur interdum, tortor quis vehicula semper, turpis ante lacinia lectus, sed imperdiet odio orci at libero. Suspendisse varius lobortis massa, id ultricies est vestibulum in. Nullam sollicitudin justo non nisl efficitur posuere. In hac habitasse platea dictumst. Suspendisse potenti. Donec bibendum posuere nulla, a suscipit nisi placerat nec. Quisque vitae laoreet magna, in rutrum nulla.
   Morbi et consectetur arcu. Sed fringilla quam nec varius hendrerit. Pellentesque id quam a felis aliquet interdum eget eget nunc.
-shortDescription: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.
+coverImage: /img/garage.png
+images:
+  - /img/garage.png
+  - /img/garage.png
