@@ -14,8 +14,10 @@ exports.createPages = ({ graphql, actions }) => {
           id
           address
           description
+          shortDescription
           area
-          price
+          rentPrice
+          sellPrice
         }
       }
     }

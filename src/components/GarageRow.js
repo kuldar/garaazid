@@ -3,6 +3,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 
+// Helpers
+import { formatMoney } from '../utils/money'
+
 // GarageRow
 const GarageRow = ({ garage }) => (
   <Container to={`/${garage.id}`}>
@@ -19,10 +22,18 @@ const GarageRow = ({ garage }) => (
           <Value>{garage.area}m</Value>
           <Label>Pind</Label>
         </Info>
-        <Info>
-          <Value>{garage.price} €</Value>
-          <Label>Hind</Label>
-        </Info>
+        { garage.rentPrice &&
+          <Info>
+            <Value>{formatMoney(garage.rentPrice)} €</Value>
+            <Label>Rendi Hind</Label>
+          </Info>
+        }
+        { garage.sellPrice &&
+          <Info>
+            <Value>{formatMoney(garage.sellPrice)} €</Value>
+            <Label>Müügi Hind</Label>
+          </Info>
+        }
       </InfoGroup>
 
     </Overview>
@@ -47,6 +58,10 @@ const Container = styled(Link)`
   border-top: 1px solid ${p => p.theme.gray300};
   display: flex;
   padding: 16px;
+
+  &:hover {
+    background-color: ${p => p.theme.gray100};
+  }
 `
 
 const Image = styled.img`
@@ -88,7 +103,9 @@ const Value = styled.div`
 `
 
 const Label = styled.div`
-  ${grayText}
+  color: ${p => p.theme.gray600};
+  font-size: 16px;
+  line-height: 20px;
 `
 
 export default GarageRow

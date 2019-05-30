@@ -2,6 +2,8 @@ backend:
   name: github
   repo: kuldar/garaazid-web
 
+publish_mode: editorial_workflow
+
 media_folder: static/img
 public_folder: /img
 
@@ -11,7 +13,7 @@ collections:
     folder: "src/garages"
     extension: "yaml"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     editor:
       preview: false
     fields:
@@ -20,6 +22,6 @@ collections:
       - { label: "Hind (Rent)", name: "rentPrice", widget: "number" }
       - { label: "Hind (Müük)", name: "sellPrice", widget: "number" }
       - { label: "Pindala (m²)", name: "area", widget: "number" }
-      - { label: "Kirjeldus", name: "description", widget: "markdown" }
       - { label: "Lühikirjeldus", name: "shortDescription", widget: "string" }
+      - { label: "Kirjeldus", name: "description", widget: "markdown" }
       - { label: "Kaanepilt", name: "coverImage", widget: "image" }

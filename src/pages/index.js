@@ -9,7 +9,7 @@ import Top from '../components/Top'
 import Form from '../components/Form'
 import Features from '../components/Features'
 import GarageRow from '../components/GarageRow'
-import Filters from '../components/Filters'
+// import Filters from '../components/Filters'
 import Footer from '../components/Footer'
 
 // Home
@@ -23,7 +23,8 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
       </Header>
       <Features />
       <Garages>
-        <Filters />
+        {/* <Filters /> */}
+        {/* <Title>2 Garaaži</Title> */}
         { garages.map(garage => <GarageRow garage={garage} />) }
       </Garages>
       <Footer />
@@ -64,16 +65,27 @@ const Garages = styled.div`
   box-shadow: ${p => p.theme.cardShadow};
 `
 
+// const Title = styled.div`
+//   font-size: 16px;
+//   line-height: 16px;
+//   font-weight: 700;
+//   text-transform: uppercase;
+//   color: ${p => p.theme.gray500};
+//   padding: 16px;
+//   text-align: center;
+// `
+
 export const pageQuery = graphql`
   query {
     allGaragesYaml {
       nodes {
         id
         address
+        rentPrice
+        sellPrice
         area
-        shortDescription
         description
-        price
+        shortDescription
       }
     }
   }

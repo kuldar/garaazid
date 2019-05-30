@@ -22,8 +22,6 @@ const Filters = () => (
     <FilterGroup>
       <Filter label="Müüa" isActive />
       <Filter label="Rendile" isActive />
-      <Filter label="Ostu soov" isActive />
-      <Filter label="Üüri soov" isActive />
     </FilterGroup>
     <select>
       <option>Uuemand ees</option>

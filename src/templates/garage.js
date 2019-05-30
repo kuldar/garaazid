@@ -1,16 +1,34 @@
 // Libraries
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import Lightbox from 'react-images'
 
 // Components
 import Layout from '../components/Layout'
 import Top from '../components/Top'
 import Footer from '../components/Footer'
 
+// Helpers
+import { formatMoney } from '../utils/money'
+
 // Garage
 const GaragePage = ({ pageContext: garage }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false)
   return (
     <Layout>
+      <Lightbox
+        backdropClosesModal={true}
+        closeButtonTitle="Sulge"
+        imageCountSeparator="/"
+        images={[
+          { src: 'https://i.imgur.com/vpj2BD3.png' },
+          { src: 'https://i.imgur.com/vpj2BD3.png' }
+        ]}
+        isOpen={lightboxOpen}
+        // onClickPrev={this.gotoPrevious}
+        // onClickNext={this.gotoNext}
+        onClose={() => setLightboxOpen(false)}
+      />
       <Header>
         <Top />
       </Header>
@@ -26,16 +44,24 @@ const GaragePage = ({ pageContext: garage }) => {
                   <Value>{garage.area}m</Value>
                   <Label>Pind</Label>
                 </Info>
-                <Info>
-                  <Value>{garage.price} €</Value>
-                  <Label>Hind</Label>
-                </Info>
+                { garage.rentPrice &&
+                  <Info>
+                    <Value>{formatMoney(garage.rentPrice)} €</Value>
+                    <Label>Rendi Hind</Label>
+                  </Info>
+                }
+                { garage.sellPrice &&
+                  <Info>
+                    <Value>{formatMoney(garage.sellPrice)} €</Value>
+                    <Label>Müügi Hind</Label>
+                  </Info>
+                }
               </InfoGroup>
             </Dark>
             <Description>{garage.description}</Description>
           </Main>
 
-          <Images>
+          <Images onClick={() => setLightboxOpen(true)}>
             <MainImage src="https://i.imgur.com/vpj2BD3.png" />
             <SmallImages>
               <Image src="https://i.imgur.com/vpj2BD3.png" />
