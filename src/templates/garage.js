@@ -7,6 +7,7 @@ import marked from 'marked'
 // Components
 import Layout from '../components/Layout'
 import Top from '../components/Top'
+import Bio from '../components/Bio'
 import Footer from '../components/Footer'
 
 // Helpers
@@ -85,6 +86,7 @@ const GaragePage = ({ pageContext: garage }) => {
 
         </Container>
       </Border>
+      <Bio />
       <Footer />
     </Layout>
   )
