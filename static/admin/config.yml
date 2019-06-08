@@ -18,7 +18,7 @@ collections:
   - name: "garages"
     label: "Garaazid"
     folder: "src/garages"
-    extension: "yaml"
+    extension: "yml"
     slug: "{{slug}}"
     create: true
     editor:

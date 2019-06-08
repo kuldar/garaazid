@@ -10,6 +10,7 @@ import Form from '../components/Form'
 import Features from '../components/Features'
 import GarageRow from '../components/GarageRow'
 // import Filters from '../components/Filters'
+import Bio from '../components/Bio'
 import Footer from '../components/Footer'
 
 // Home
@@ -22,11 +23,14 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
         <Form />
       </Header>
       <Features />
-      <Garages>
-        {/* <Filters /> */}
-        {/* <Title>2 Garaaži</Title> */}
-        { garages.map(garage => <GarageRow garage={garage} />) }
-      </Garages>
+      <GaragesContainer>
+        <Garages>
+          {/* <Filters /> */}
+          {/* <Title>2 Garaaži</Title> */}
+          { garages.map(garage => <GarageRow garage={garage} />) }
+        </Garages>
+      </GaragesContainer>
+      <Bio />
       <Footer />
     </Layout>
   )
@@ -56,6 +60,10 @@ const Hero = styled.div`
     color: ${p => p.theme.gray900};
     background-color: ${p => p.theme.yellow500};
   }
+`
+
+const GaragesContainer = styled.div`
+  box-shadow: inset 0 -40px 0 ${p => p.theme.gray900};
 `
 
 const Garages = styled.div`

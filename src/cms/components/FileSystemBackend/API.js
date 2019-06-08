@@ -13,11 +13,10 @@ export default class API {
   }
 
   requestHeaders(headers = {}) {
-    const baseHeader = {
-      'Content-Type': 'application/json', ...headers
+    return {
+      'Content-Type': 'application/json',
+      ...headers
     }
-
-    return baseHeader
   }
 
   parseJsonResponse(response) {

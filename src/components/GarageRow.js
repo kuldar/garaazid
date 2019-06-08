@@ -19,7 +19,7 @@ const GarageRow = ({ garage }) => (
 
       <InfoGroup>
         <Info>
-          <Value>{garage.area}m</Value>
+          <Value>{garage.area}m²</Value>
           <Label>Pind</Label>
         </Info>
         { garage.rentPrice &&
@@ -55,13 +55,11 @@ const grayText = css`
 
 const Container = styled(Link)`
   cursor: pointer;
-  border-top: 1px solid ${p => p.theme.gray300};
   display: flex;
   padding: 16px;
 
-  &:hover {
-    background-color: ${p => p.theme.gray100};
-  }
+  & + & { border-top: 1px solid ${p => p.theme.gray300}; }
+  &:hover { background-color: ${p => p.theme.gray100}; }
 `
 
 const Image = styled.img`

@@ -15,7 +15,7 @@ const Top = () => (
     <Contact>
       <PhoneNumber>+372 <strong>56 214 956</strong></PhoneNumber>
       <Phone />
-      <FacebookLink href="#"><Facebook /></FacebookLink>
+      {/* <FacebookLink href="#"><Facebook /></FacebookLink> */}
     </Contact>
   </Center>
 )

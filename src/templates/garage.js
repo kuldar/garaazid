@@ -1,7 +1,8 @@
 // Libraries
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Lightbox from 'react-images'
+import Carousel, { Modal, ModalGateway } from 'react-images'
+import marked from 'marked'
 
 // Components
 import Layout from '../components/Layout'
@@ -13,34 +14,41 @@ import { formatMoney } from '../utils/money'
 
 // Garage
 const GaragePage = ({ pageContext: garage }) => {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const lightboxImages = []
-  garage.images.map(image => lightboxImages.push({ src: image }))
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(0)
+
+  const garageImages = [{ src: garage.coverImage }]
+  garage.images.map(image => garageImages.push({ src: image }))
+
+  const ModalCarousel = () => (
+    <ModalGateway>
+      {modalIsOpen ? (
+        <Modal onClose={() => setModalIsOpen(false)}>
+          <Carousel
+            currentIndex={selectedImage}
+            views={garageImages} />
+        </Modal>
+      ) : null}
+    </ModalGateway>
+  )
+
   return (
     <Layout>
-      <Lightbox
-        backdropClosesModal={true}
-        closeButtonTitle="Sulge"
-        imageCountSeparator="/"
-        images={lightboxImages}
-        isOpen={lightboxOpen}
-        // onClickPrev={this.gotoPrevious}
-        // onClickNext={this.gotoNext}
-        onClose={() => setLightboxOpen(false)}
-      />
+      <ModalCarousel />
+
       <Header>
         <Top />
       </Header>
+
       <Border>
         <Container>
 
           <Main>
             <Dark>
               <Address>{garage.address}</Address>
-
               <InfoGroup>
                 <Info>
-                  <Value>{garage.area}m</Value>
+                  <Value>{garage.area}m²</Value>
                   <Label>Pind</Label>
                 </Info>
                 { garage.rentPrice &&
@@ -57,14 +65,21 @@ const GaragePage = ({ pageContext: garage }) => {
                 }
               </InfoGroup>
             </Dark>
-            <Description>{garage.description}</Description>
+            <Description dangerouslySetInnerHTML={{__html: marked(garage.description)}} />
           </Main>
 
-          <Images onClick={() => garage.images ? setLightboxOpen(true) : null}>
-            <MainImage src={garage.coverImage} />
+          <Images>
+            <MainImage
+              src={garage.coverImage}
+              onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(0) ) : null} />
             <SmallImages>
               { garage.images &&
-                garage.images.map(imageUrl => <Image src={imageUrl} />) }
+                garage.images.map((imageUrl, index) =>
+                  <Image
+                    src={imageUrl}
+                    onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(index + 1) ) : null} />
+                )
+              }
             </SmallImages>
           </Images>
 
@@ -85,13 +100,24 @@ const Border = styled.div`
 `
 
 const Container = styled.div`
-  width: 864px;
+  max-width: 864px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 700px) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 `
 
 const Main = styled.div`
-  width: 60%;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    width: 60%;
+  }
 `
 
 const Dark = styled.div`
@@ -138,16 +164,33 @@ const Description = styled.div`
   color: ${p => p.theme.gray900};
   font-size: 18px;
   line-height: 24px;
+
+  strong { font-weight: bold; }
+  ul, ol {
+    margin: 16px 0;
+    list-style: disc;
+  }
+
 `
 
 const Images = styled.div`
+  width: 80%;
+
+@media screen and (min-width: 700px) {
   width: 40%;
+}
 `
 
 const MainImage = styled.img`
   width: 100%;
   height: auto;
   display: block;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 100ms ease;
+  }
 `
 
 const SmallImages = styled.div`
@@ -159,8 +202,15 @@ const SmallImages = styled.div`
 
 const Image = styled.img`
   width: 33.33%;
-  height: auto;
+  height: 100px;
   display: block;
+  object-fit: cover;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 100ms ease;
+  }
 `
 
 export default GaragePage

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 // Footer
 const Footer = () => (
   <Container>
-    <Name>Garaazid.ee</Name>
+    <Name>Garaazid.ee &copy; { new Date().getFullYear() }</Name>
     <Number>+372 <strong>56 214 956</strong></Number>
   </Container>
 )

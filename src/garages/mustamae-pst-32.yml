@@ -1,8 +1,8 @@
-id: liivaoja-tn-14
-address: 'Liivaoja tn 14, Kesklinn, Tallinn'
-rentPrice: 500
-sellPrice: 7500
-area: 22
+id: mustamae-pst-32
+address: 'Mustamäe pst 32, Mustamäe, Tallinn'
+rentPrice: 300
+sellPrice: 2500
+area: 21
 shortDescription: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum,
   semper massa.
@@ -31,7 +31,7 @@ description: >-
   Pellentesque id quam a felis aliquet interdum eget eget nunc.
 coverImage: /img/garage-3.jpg
 images:
-  - /img/garage-2.jpg
   - /img/garage-1.jpg
-  - /img/garage-6.jpg
-  - /img/garage-5.jpg
+  - /img/garage-2.jpg
+  - /img/garage-4.jpg
+  - /img/garage-7.jpg
