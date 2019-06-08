@@ -2,8 +2,8 @@
 
 ## Running locally
 ```
-git clone git@github.com:kuldar/garaazid-web.git
-cd garaazid-web
+git clone git@github.com:kuldar/garaazid.git
+cd garaazid
 yarn
 yarn dev
 ```
