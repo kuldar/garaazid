@@ -25,16 +25,24 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   max-width: 1032px;
   margin: 0 auto;
   padding: 0 16px;
+
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+  }
 `
 
 const Column = styled.div`
   flex: 1;
   margin: 24px;
-  &:first-child { margin-left: 0; }
-  &:last-child { margin-right: 0; }
+
+  @media screen and (min-width: 700px) {
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-right: 0; }
+  }
 `
 
 const Title = styled.div`

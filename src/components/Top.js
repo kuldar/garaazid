@@ -24,15 +24,25 @@ const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   max-width: 1032px;
   margin: 0 auto;
   padding: 0 16px;
   color: ${p => p.theme.white};
+
+  @media screen and (min-width: 450px) {
+    flex-direction: row;
+  }
 `
 
 const Contact = styled.div`
   display: flex;
   align-items: center;
+  margin: 16px 0 0 0;
+
+  @media screen and (min-width: 450px) {
+    margin: 0;
+  }
 `
 
 const PhoneNumber = styled.div`

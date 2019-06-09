@@ -45,21 +45,33 @@ const Form = () => (
 // Styles
 const Card = styled.div`
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 700px;
   padding: 32px;
   background-color: ${p => p.theme.white};
   box-shadow: ${p => p.theme.cardShadow};
+
+  @media screen and (min-width: 450px) {
+    flex-direction: row;
+  }
 `
 
 const Column = styled.div`
-  width: 50%;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
 
-  &:first-child { margin-right: 12px; }
-  &:last-child { margin-left: 12px; }
+  & + & { margin-top: 24px; }
+
+  @media screen and (min-width: 450px) {
+    width: 50%;
+
+    & + & { margin-top: 0; }
+    &:first-child { margin-right: 12px; }
+    &:last-child { margin-left: 12px; }
+  }
 `
 
 const Fieldset = styled.div``
@@ -76,6 +88,7 @@ const Label = styled.label`
 `
 
 const InputStyles = css`
+  display: block;
   width: 100%;
   padding: 14px;
   font-size: 20px;
@@ -83,8 +96,13 @@ const InputStyles = css`
   font-family: ${p => p.theme.mainFont};
   color: ${p => p.theme.gray800};
   background-color: ${p => p.theme.white};
-  border: 1px solid ${p => p.theme.gray400};
+  box-shadow: 0 0 0 1px ${p => p.theme.gray400};
+  border: none;
   outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px ${p => p.theme.yellow500};
+  }
 
   &::placeholder {
     color: ${p => p.theme.gray500};
@@ -94,6 +112,15 @@ const InputStyles = css`
 const Select = styled.select`
   ${InputStyles}
   margin-bottom: 24px;
+  appearance: none;
+  border-radius: 0;
+  background-image: url('/dropdown.svg');
+  background-repeat: no-repeat;
+  background-position: center right 16px;
+
+  &::-ms-expand {
+    display: none; /* hide the default arrow in ie10 and ie11 */
+  }
 `
 
 const TextInput = styled.input`
@@ -112,8 +139,14 @@ const TextAreaFieldset = styled.div`
 
 const TextArea = styled.textarea`
   ${InputStyles}
-  flex: 1;
+  flex: auto;
   resize: none;
+  height: 200px;
+
+  @media screen and (min-width: 450px) {
+    height: auto;
+    flex: 1;
+  }
 `
 
 const Button = styled.button`

@@ -56,24 +56,45 @@ const grayText = css`
 const Container = styled(Link)`
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   padding: 16px;
 
   & + & { border-top: 1px solid ${p => p.theme.gray300}; }
   &:hover { background-color: ${p => p.theme.gray100}; }
+
+  @media screen and (min-width: 550px) {
+    flex-direction: row;
+  }
 `
 
 const Image = styled.img`
   flex-shrink: 0;
   display: block;
-  width: 200px;
+  object-fit: cover;
+  width: 100%;
   height: 150px;
-  margin-right: 16px;
+  margin: 0 0 16px 0;
+
+  @media screen and (min-width: 550px) {
+    width: 150px;
+    height: 100%;
+    margin: 0 16px 0 0;
+  }
+
+  @media screen and (min-width: 550px) {
+    width: 200px;
+  }
 `
 
 const Overview = styled.div`
   display: flex;
+  flex-direction: column;
   flex: 1;
   padding: 16px;
+
+  @media screen and (min-width: 550px) {
+    flex-direction: row;
+  }
 `
 
 const Main = styled.div`
@@ -90,17 +111,42 @@ const Description = styled.div`
 
 const InfoGroup = styled.div`
   display: flex;
+  flex-direction: row;
+  margin: 16px 0 0 0;
+
+  @media screen and (min-width: 550px) {
+    margin: 0 0 0 16px;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+    margin: 0;
+  }
 `
 
 const Info = styled.div`
-  text-align: right;
-  margin-left: 32px;
+  text-align: left;
+  margin: 0 16px 0 0;
+
+  @media screen and (min-width: 550px) {
+    text-align: right;
+    margin: 0 0 8px 0;
+  }
+
+  @media screen and (min-width: 700px) {
+    margin: 0 0 0 32px;
+  }
 `
 
 const Value = styled.div`
   ${boldText}
-  margin-bottom: 12px;
+  margin: 0 0 4px 0;
   white-space: nowrap;
+
+  @media screen and (min-width: 700px) {
+    margin: 0 0 12px 0;
+  }
 `
 
 const Label = styled.div`

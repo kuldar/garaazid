@@ -39,18 +39,23 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
 const Header = styled.div`
   padding: 40px 0 64px 0;
   background-color: ${p => p.theme.gray900};
-  background-image: url('/garage.jpg');
   background-size: cover;
   background-position: center top;
   box-shadow: inset 0 -104px 0 ${p => p.theme.gray100};
+  background-image: none;
+
+  @media screen and (min-width: 700px) {
+    background-image: url('/garage.jpg');
+  }
 `
 
 const Hero = styled.div`
-  margin: 80px auto;
+  margin: 40px auto;
+  padding: 0 40px;
   max-width: 600px;
   font-weight: 700;
-  font-size: 56px;
-  line-height: 64px;
+  font-size: 40px;
+  line-height: 56px;
   letter-spacing: -1px;
   text-align: center;
   color: ${p => p.theme.white};
@@ -60,6 +65,13 @@ const Hero = styled.div`
     color: ${p => p.theme.gray900};
     background-color: ${p => p.theme.yellow500};
   }
+
+  @media screen and (min-width: 700px) {
+    font-size: 56px;
+    line-height: 64px;
+    margin: 80px auto;
+    padding: 0;
+  }
 `
 
 const GaragesContainer = styled.div`
@@ -67,7 +79,7 @@ const GaragesContainer = styled.div`
 `
 
 const Garages = styled.div`
-  width: 832px;
+  max-width: 832px;
   margin: 64px auto 0 auto;
   background-color: ${p => p.theme.white};
   box-shadow: ${p => p.theme.cardShadow};

@@ -99,6 +99,7 @@ const Header = styled.div`
 
 const Border = styled.div`
   box-shadow: inset 0 120px 0 ${p => p.theme.gray900};
+  margin-bottom: 40px;
 `
 
 const Container = styled.div`
