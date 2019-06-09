@@ -1,0 +1,17 @@
+id: Järveotsa tee
+address: 'Järveotsa tee 14, Haabersti linnaosa'
+rentPrice: 0
+sellPrice: 7500
+area: 18
+shortDescription: 'Kuiv, ventileeritud garaaž turvamehega.'
+description: "Astangu ja Järveotsa tee vahel asuv maa-alune valvega garaaž.\r\n\nVäga hästi ventileeritud, mis tagab värske kuiva õhu.\r\n\nUkse kõrgus 2m ja laius 2,9m \r\n\nBoks on 6,05m pikk ja 3,05m lai, kõrgus 2,6m\r\n\n\r\n\nTegutseb korralik garaažiühistu, kes hoolitseb turvalisuse, puhtuse, lumelükkamise ja jäätmekäitluse eest, lisaks vee kasutusvõimalus. \r\n\nKvartalitasu 55.-\r\n\n\r\n\nGaraaž on vaba ja valmis kasutamiseks."
+coverImage: /img/img_0519.jpg
+images:
+  - /img/img_0513.jpg
+  - /img/img_0515.jpg
+  - /img/img_0518.jpg
+  - /img/img_0524.jpg
+  - /img/img_0521.jpg
+  - /img/img_0523.jpg
+  - /img/img_0519.jpg
+  - /img/img_0521.jpg
