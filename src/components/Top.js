@@ -6,7 +6,7 @@ import styled from 'styled-components'
 // Assets
 import Logo from '../svgs/logo.svg'
 import Phone from '../svgs/phone.svg'
-import Facebook from '../svgs/facebook.svg'
+// import Facebook from '../svgs/facebook.svg'
 
 // Layout
 const Top = () => (
@@ -53,12 +53,12 @@ const PhoneNumber = styled.div`
   strong { font-weight: 700; }
 `
 
-const FacebookLink = styled.a`
-  transition: transform 100ms ease;
-  margin-left: 16px;
+// const FacebookLink = styled.a`
+//   transition: transform 100ms ease;
+//   margin-left: 16px;
 
-  svg { display: block; }
-  &:hover { transform: scale(1.25); }
-`
+//   svg { display: block; }
+//   &:hover { transform: scale(1.25); }
+// `
 
 export default Top

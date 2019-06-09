@@ -8,9 +8,7 @@ import GlobalStyles from '../styles/globalStyles'
 import theme from '../styles/theme'
 
 // Variables
-const siteName = `Garaazid`
-const siteDescription = `Garaazide ost müük ja vahetus`
-const siteUrl = `https://garaazid.ee`
+import { siteName, siteDescription, siteUrl } from '../utils/variables'
 
 // Layout
 export default ({ children }) => (

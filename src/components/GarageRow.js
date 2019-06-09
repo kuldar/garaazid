@@ -2,6 +2,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
+import Img from 'gatsby-image'
+import { StaticQuery } from 'gatsby'
 
 // Helpers
 import { formatMoney } from '../utils/money'
@@ -10,6 +12,8 @@ import { formatMoney } from '../utils/money'
 const GarageRow = ({ garage }) => (
   <Container to={`/${garage.id}`}>
     <Image src={garage.coverImage} />
+    {/* <Image src={garage.coverImage} /> */}
+    {/* <Image fluid={garage.coverImage.childImageSharp.fluid} /> */}
 
     <Overview>
       <Main>
@@ -40,6 +44,26 @@ const GarageRow = ({ garage }) => (
   </Container>
 )
 
+// Garage Images
+const garageImagesQuery = graphql`
+  query {
+    allImageSharp { edges { node { fluid(maxWidth: 300) { ...GatsbyImageSharpFluid originalName }}}}
+  }
+`
+
+const GarageImage = ({ src, ...props }) => {
+  const imageName = src.substr(src.lastIndexOf('/') + 1)
+  return (
+    <StaticQuery
+      query={garageImagesQuery}
+      render={({ allImageSharp: { edges: images } }) => {
+        const image = images.find(({ node: { fluid: { originalName }}}) => originalName === imageName)
+        if (!image) { return null }
+        return <Img fluid={image.node.fluid} sizes={image.sizes} {...props} />
+      }} />
+  )
+}
+
 // Styles
 const boldText = css`
   font-weight: 700;
@@ -67,7 +91,8 @@ const Container = styled(Link)`
   }
 `
 
-const Image = styled.img`
+// const Image = styled(Img)`
+const Image = styled(GarageImage)`
   flex-shrink: 0;
   display: block;
   object-fit: cover;

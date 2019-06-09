@@ -3,23 +3,54 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import marked from 'marked'
+import { Helmet } from 'react-helmet'
+import { StaticQuery, useStaticQuery } from 'gatsby'
 
 // Components
 import Layout from '../components/Layout'
 import Top from '../components/Top'
 import Bio from '../components/Bio'
+import GarageThumbnail from '../components/GarageThumbnail'
 import Footer from '../components/Footer'
 
 // Helpers
 import { formatMoney } from '../utils/money'
+import { siteName, siteUrl } from '../utils/variables'
+
+// Garage Images
+const getModalGarageImages = (garageSourceImages) => {
+  const garageImages = []
+  const data = useStaticQuery(graphql`
+    query { allImageSharp { edges { node { fluid(maxWidth: 1200) {
+      ...GatsbyImageSharpFluid
+      originalName
+    }}}}}
+  `)
+
+  const modalImages = data.allImageSharp.edges
+
+  garageSourceImages.map(image => {
+    const resizedImage = modalImages.find(({ node: { fluid: { originalName } }}) => originalName === image)
+    // console.log({ resizedImage })
+    resizedImage && garageImages.push({ src: resizedImage.node.fluid.src })
+  })
+
+  return garageImages
+}
 
 // Garage
 const GaragePage = ({ pageContext: garage }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState(0)
 
-  const garageImages = [{ src: garage.coverImage }]
-  garage.images.map(image => garageImages.push({ src: image }))
+  const garageSourceImages = [garage.coverImage.substr(garage.coverImage.lastIndexOf('/') + 1)]
+  garage.images.map(image => garageSourceImages.push(image.substr(image.lastIndexOf('/') + 1)))
+
+  const garageImages = getModalGarageImages(garageSourceImages)
+  console.log({ garageImages })
+
+  const pageUrl = siteUrl + '/' + garage.id
+  const pageTitle = garage.address + ' - ' + siteName
 
   const ModalCarousel = () => (
     <ModalGateway>
@@ -35,6 +66,23 @@ const GaragePage = ({ pageContext: garage }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <html lang='et' />
+        <title>{pageTitle}</title>
+        <meta name="description" content={garage.shortDescription} />
+        <link rel='canonical' href={pageUrl} />
+        <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
+        <meta property='og:url' content={pageUrl} />
+        <meta property='og:type' content='website' />
+        <meta property='og:locale' content='et' />
+        <meta property='og:title' content={pageTitle} />
+        <meta property='og:description' content={garage.shortDescription} />
+        <meta property='og:site_name' content={pageTitle} />
+        <meta property='og:image' content={garage.coverImage} />
+        <meta property='og:image:width' content='1012' />
+        <meta property='og:image:height' content='506' />
+        <meta name='twitter:card' content='summary_large_image' />
+      </Helmet>
       <ModalCarousel />
 
       <Header>
@@ -70,15 +118,17 @@ const GaragePage = ({ pageContext: garage }) => {
           </Main>
 
           <Images>
-            <MainImage
-              src={garage.coverImage}
-              onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(0) ) : null} />
+            <MainImageContainer onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(0) ) : null}>
+              <MainImage
+                isMain={true}
+                src={garage.coverImage} />
+            </MainImageContainer>
             <SmallImages>
               { garage.images &&
                 garage.images.map((imageUrl, index) =>
-                  <Image
-                    src={imageUrl}
-                    onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(index + 1) ) : null} />
+                  <ImageContainer onClick={() => garage.images ? ( setModalIsOpen(true), setSelectedImage(index + 1) ) : null}>
+                    <Image src={imageUrl} />
+                  </ImageContainer>
                 )
               }
             </SmallImages>
@@ -179,12 +229,14 @@ const Description = styled.div`
 const Images = styled.div`
   width: 80%;
 
-@media screen and (min-width: 700px) {
-  width: 40%;
-}
+  @media screen and (min-width: 700px) {
+    width: 40%;
+  }
 `
 
-const MainImage = styled.img`
+const MainImageContainer = styled.div``
+
+const MainImage = styled(GarageThumbnail)`
   width: 100%;
   height: auto;
   display: block;
@@ -203,9 +255,14 @@ const SmallImages = styled.div`
   /* background-color: ${p => p.theme.yellow500}; */
 `
 
-const Image = styled.img`
+const ImageContainer = styled.div`
   width: 33.33%;
   height: 100px;
+`
+
+const Image = styled(GarageThumbnail)`
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 

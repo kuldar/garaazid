@@ -15,11 +15,18 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `./static/img/`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
