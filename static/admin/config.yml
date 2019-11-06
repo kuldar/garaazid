@@ -27,9 +27,9 @@ collections:
     fields:
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Aadress", name: "address", widget: "string", tagname: h1 }
-      - { label: "Hind (Rent)", name: "rentPrice", widget: "number" }
-      - { label: "Hind (Müük)", name: "sellPrice", widget: "number" }
-      - { label: "Pindala (m²)", name: "area", widget: "number" }
+      - { label: "Hind (Rent)", name: "rentPrice", widget: "number", required: false }
+      - { label: "Hind (Müük)", name: "sellPrice", widget: "number", required: false }
+      - { label: "Pindala (m²)", name: "area", widget: "number", required: false }
       - { label: "Lühikirjeldus", name: "shortDescription", widget: "string" }
       - { label: "Kirjeldus", name: "description", widget: "markdown" }
       - { label: "Kaanepilt", name: "coverImage", widget: "image" }
