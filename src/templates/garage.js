@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import marked from 'marked'
 import { Helmet } from 'react-helmet'
-import { StaticQuery, useStaticQuery } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
 
 // Components
 import Layout from '../components/Layout'
@@ -31,8 +31,7 @@ const getModalGarageImages = (garageSourceImages) => {
 
   garageSourceImages.map(image => {
     const resizedImage = modalImages.find(({ node: { fluid: { originalName } }}) => originalName === image)
-    // console.log({ resizedImage })
-    resizedImage && garageImages.push({ src: resizedImage.node.fluid.src })
+    return resizedImage && garageImages.push({ src: resizedImage.node.fluid.src })
   })
 
   return garageImages

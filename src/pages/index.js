@@ -27,7 +27,7 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
         <Garages>
           {/* <Filters /> */}
           {/* <Title>2 Garaaži</Title> */}
-          { garages.map(garage => <GarageRow garage={garage} />) }
+          { garages.map(garage => <GarageRow key={garage.id} garage={garage} />) }
         </Garages>
       </GaragesContainer>
       <Bio />

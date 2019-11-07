@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState } from 'react'
+import React from 'react'
 import { StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
