@@ -22,19 +22,19 @@ const GarageRow = ({ garage }) => (
       </Main>
 
       <InfoGroup>
-        { garage.area && (garage.area !== 0) &&
+        { (garage.area !== 0) &&
           <Info>
             <Value>{garage.area}m²</Value>
             <Label>Pind</Label>
           </Info>
         }
-        { garage.rentPrice && (garage.rentPrice !== 0) &&
+        { (garage.rentPrice !== 0) &&
           <Info>
             <Value>{formatMoney(garage.rentPrice)} €</Value>
             <Label>Rent</Label>
           </Info>
         }
-        { garage.sellPrice && (garage.sellPrice !== 0) &&
+        { (garage.sellPrice !== 0) &&
           <Info>
             <Value>{formatMoney(garage.sellPrice)} €</Value>
             <Label>Müük</Label>
