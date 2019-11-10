@@ -70,6 +70,7 @@ const Form = () => {
   return (
     <>
       <Card
+        id="contact"
         name="contact"
         method="post"
         data-netlify="true"
@@ -84,6 +85,7 @@ const Form = () => {
             <Label isHighlighted={missingInputs.includes('type')}>Soovin</Label>
             <Select
               required
+              id="type"
               name="type"
               onChange={handleInputChange}>
               <Option value='' disabled selected>Vali..</Option>
@@ -97,6 +99,7 @@ const Form = () => {
           <TextAreaFieldset>
             <Label isHighlighted={missingInputs.includes('message')}>Lühikirjeldus</Label>
             <TextArea
+              id="message"
               name="message"
               onChange={handleInputChange}
               placeholder="Paari sõnaga garaažist..." />
