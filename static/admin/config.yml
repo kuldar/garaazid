@@ -17,6 +17,7 @@ slug:
 collections:
   - name: "garages"
     label: "Garaazid"
+    label_singular: "Garaaz"
     folder: "src/garages"
     extension: "yml"
     slug: "{{slug}}"
@@ -25,6 +26,8 @@ collections:
       preview: false
     identifier_field: id
     fields:
+      - { label: "Avalik", name: "isPublished", widget: "boolean", default: false }
+      - { label: "Lisatud", name: "createdAt", widget: "datetime" }
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Aadress", name: "address", widget: "string", tagname: h1 }
       - { label: "Hind (Rent)", name: "rentPrice", widget: "number", required: false }

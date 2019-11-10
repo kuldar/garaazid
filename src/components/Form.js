@@ -86,7 +86,7 @@ const Form = () => {
               required
               name="type"
               onChange={handleInputChange}>
-              <Option value='' disabled selected hidden>Vali..</Option>
+              <Option value='' disabled selected>Vali..</Option>
               <Option value='hindamine'>Garaaži hinnata</Option>
               <Option value='müük'>Garaaži müüa</Option>
               <Option value='ost'>Garaaži osta</Option>
@@ -99,7 +99,7 @@ const Form = () => {
             <TextArea
               name="message"
               onChange={handleInputChange}
-              placeholder="Paari sõnaga garaazist..." />
+              placeholder="Paari sõnaga garaažist..." />
           </TextAreaFieldset>
         </Column>
         <Column>

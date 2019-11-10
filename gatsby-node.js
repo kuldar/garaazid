@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
     query garagesQuery {
       allGaragesYaml {
         nodes {
+          isPublished
           id
           address
           description
@@ -30,12 +31,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create garages pages
     result.data.allGaragesYaml.nodes.forEach(garage => {
-      createPage({
-        // Path for this page — required
-        path: `/${garage.id}`,
-        component: garagePageTemplate,
-        context: { ...garage }
-      })
+      if (garage.isPublished) {
+        createPage({
+          // Path for this page — required
+          path: `/${garage.id}`,
+          component: garagePageTemplate,
+          context: { ...garage }
+        })
+      }
     })
   })
 }

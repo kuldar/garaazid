@@ -27,7 +27,7 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
         <Garages>
           {/* <Filters /> */}
           {/* <Title>2 Garaaži</Title> */}
-          { garages.map(garage => <GarageRow key={garage.id} garage={garage} />) }
+          { garages.map(garage => garage.isPublished && <GarageRow key={garage.id} garage={garage} />) }
         </Garages>
       </GaragesContainer>
       <Bio />
@@ -97,8 +97,9 @@ const Garages = styled.div`
 
 export const pageQuery = graphql`
   query {
-    allGaragesYaml {
+    allGaragesYaml (sort: { fields: createdAt, order: DESC }) {
       nodes {
+        isPublished
         id
         address
         rentPrice
