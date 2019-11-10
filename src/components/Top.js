@@ -11,8 +11,8 @@ import Phone from '../svgs/phone.svg'
 // Handle callout click
 const handleCallout = e => {
   e.preventDefault()
-  document.getElementById('type').value = 'hindamine'
-  document.getElementById('message').focus({ preventScroll: false })
+  // document.getElementById('type').value = 'hindamine'
+  document.getElementById('message').focus()
   document.getElementById('contact').scrollIntoView()
 }
 

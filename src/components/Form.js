@@ -88,8 +88,8 @@ const Form = () => {
               id="type"
               name="type"
               onChange={handleInputChange}>
-              <Option value='' disabled selected>Vali..</Option>
-              <Option value='hindamine'>Garaaži hinnata</Option>
+              {/* <Option value='' disabled selected>Vali..</Option> */}
+              <Option value='hindamine' selected>Garaaži hinnata</Option>
               <Option value='müük'>Garaaži müüa</Option>
               <Option value='ost'>Garaaži osta</Option>
               <Option value='rent'>Garaaži rentida</Option>

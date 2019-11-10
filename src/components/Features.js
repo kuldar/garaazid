@@ -6,8 +6,8 @@ import styled from 'styled-components'
 const Features = () => (
   <Row>
     <Column>
-      <Title>Auto telkide rent</Title>
-      <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at enim rutrum, semper massa.</Description>
+      <Title>Tasuta hindamine</Title>
+      <Description>Leiame teie objektile konkurentsiväärse turuhinna</Description>
     </Column>
     <Column>
       <Title>Treileri rent</Title>
