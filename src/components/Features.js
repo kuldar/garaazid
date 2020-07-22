@@ -6,16 +6,16 @@ import styled from 'styled-components'
 const Features = () => (
   <Row>
     <Column>
-      <Title>Tasuta hindamine</Title>
-      <Description>Leiame teie objektile konkurentsiväärse turuhinna</Description>
+      <Title>Sobiva garaaži leidmine</Title>
+      <Description>Pakun enda koostööpartnerite ja turul olevatest garaažidest teie kriteeriumitele sobiliku garaaži</Description>
     </Column>
     <Column>
-      <Title>Treileri rent</Title>
-      <Description>Sed in purus egestas, viverra sem nec, tristique justo. Praesent dignissim, felis euismod.</Description>
+      <Title>Garaažide turvaline müük</Title>
+      <Description>Koostan lepingu, mis kaitseb maksimaalselt teie huve. Panen paika müügistrateegia ning nõustan garaaži ettevalmistusega.</Description>
     </Column>
     <Column>
-      <Title>Valvesüsteemide rent</Title>
-      <Description>Vestibulum gravida lorem eu mattis suscipit. Mauris fermentum orci mi, at consectetur odio vehicula.</Description>
+      <Title>Garaažide renoveerimine</Title>
+      <Description>Katus laseb läbi? Uksed tahavad vahetust või garaaž vajab värskendamist? Leiame sobiva lahenduse!</Description>
     </Column>
   </Row>
 )
