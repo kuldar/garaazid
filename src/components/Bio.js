@@ -12,7 +12,7 @@ const Bio = () => (
     <Card>
       <Image />
       <Main>
-        <Quote><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong> Nam at mauris ac lorem accumsan pharetra quis at nibh. Integer ultrices purus vitae orci blandit, in mollis elit rutrum. In mollis elit rutrum.</Quote>
+        <Quote><strong>Oman 6 aastast kogemust garaažide ostmisel, müümisel ja üürile andmisel.</strong> Selle aja jooksul olen õppinud erinevaid teadmisi ja kogemusi tänu millele saan aidata ära hoida ebameeldivaid üllatusi. Oma töös hindan kõrgelt professionaalsust ja usaldust.</Quote>
         <Footer>
           <div>
             <Name>Ats Asujõe</Name>
