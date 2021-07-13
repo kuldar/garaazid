@@ -23,13 +23,13 @@ const HomePage = ({ data: { allGaragesYaml: { nodes: garages } } }) => {
         <Form />
       </Header>
       <Features />
-      <GaragesContainer>
-        <Garages>
-          {/* <Filters /> */}
-          {/* <Title>2 Garaaži</Title> */}
-          { garages.map(garage => garage.isPublished && <GarageRow key={garage.id} garage={garage} />) }
-        </Garages>
-      </GaragesContainer>
+//       <GaragesContainer>
+//         <Garages>
+//           {/* <Filters /> */}
+//           {/* <Title>2 Garaaži</Title> */}
+//           { garages.map(garage => garage.isPublished && <GarageRow key={garage.id} garage={garage} />) }
+//         </Garages>
+//       </GaragesContainer>
       <Bio />
       <Footer />
     </Layout>
@@ -74,16 +74,16 @@ const Hero = styled.div`
   }
 `
 
-const GaragesContainer = styled.div`
-  box-shadow: inset 0 -40px 0 ${p => p.theme.gray900};
-`
+// const GaragesContainer = styled.div`
+//   box-shadow: inset 0 -40px 0 ${p => p.theme.gray900};
+// `
 
-const Garages = styled.div`
-  max-width: 832px;
-  margin: 64px auto 0 auto;
-  background-color: ${p => p.theme.white};
-  box-shadow: ${p => p.theme.cardShadow};
-`
+// const Garages = styled.div`
+//   max-width: 832px;
+//   margin: 64px auto 0 auto;
+//   background-color: ${p => p.theme.white};
+//   box-shadow: ${p => p.theme.cardShadow};
+// `
 
 // const Title = styled.div`
 //   font-size: 16px;
