@@ -40,12 +40,7 @@ module.exports = {
         rule: { include: /svgs/ }
       }
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [{ family: `Archivo`, variants: [`400`, `700`] }]
-      }
-    },
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
